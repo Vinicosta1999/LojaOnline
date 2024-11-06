@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Oferta</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Sua Loja</h1>
+            <nav role="navigation" aria-label="Navegação Principal">
+                <ul>
+                    <li><a href="{% url 'pagina_inicial' %}">Página Inicial</a></li>
+                    <li><a href="{% url 'lista_categorias' %}">Categorias</a></li>
+                    <li><a href="{% url 'lista_produtos' %}">Produtos</a></li>
+                    <li><a href="{% url 'relatorio_estoque' %}">Relatório de Estoque</a></li>
+                    <li><a href="{% url 'historico_vendas' %}">Histórico de Vendas</a></li>
+                    <li><a href="{% url 'lista_movimentacoes' %}">Movimentações de Estoque</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="oferta-detalhes">
+            <div class="container">
+                <h2 class="section-title">{{ oferta.nome }}</h2>
+                <div class="oferta-card">
+                    <div class="slider">
+                        <div><img src="{{ oferta.imagem.url }}" alt="{{ oferta.nome }}"></div>
+                        <!-- Add more images if necessary -->
+                    </div>
+                    <div class="oferta-info">
+                        <h3>Preço: R$ {{ oferta.preco }}</h3>
+                        <p>{{ oferta.descricao }}</p>
+                        <a href="{% url 'remover_oferta' oferta.id %}" class="btn btn-danger">Remover Oferta</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p class="footer-text">&copy; {{ year }} Sua Loja. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true
+            });
+        });
+    </script>
+</body>
+</html>

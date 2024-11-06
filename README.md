@@ -1,0 +1,1 @@
+Software com framework web (Django) que utiliza noções de banco de dados (PostgreSQL), praticando controle de versão (git e gitHUB), cujo objetivo é o Gerenciamento de Dados para Controle de Estoque de uma loja online.

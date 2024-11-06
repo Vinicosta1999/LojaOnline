@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remover Produto - {{ produto.nome }} - Sua Loja</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/remover_produto.css' %}">
+</head>
+<body>
+    <header>
+        <!-- Seu cabeçalho comum aqui -->
+    </header>
+
+    <main>
+        <section class="remove-product">
+            <div class="container">
+                <h2 class="section-title">Remover Produto</h2>
+                <p>Tem certeza que deseja remover o produto "{{ produto.nome }}"?</p>
+                <form action="{% url 'remover_produto_confirmado' produto.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Sim, remover</button>
+                    <a href="{% url 'lista_produtos' %}" class="btn btn-primary">Cancelar</a>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Seu rodapé comum aqui -->
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

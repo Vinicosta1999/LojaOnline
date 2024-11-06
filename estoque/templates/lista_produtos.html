@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos - Sua Loja</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lista_produtos.css' %}">
+</head>
+<body>
+    <header>
+        <!-- Seu cabeçalho comum aqui -->
+    </header>
+
+    <main>
+        <section class="product-list">
+            <div class="container">
+                <h2 class="section-title">Lista de Produtos</h2>
+                <ul class="product-list">
+                    {% for produto in produtos %}
+                        <li><a href="{% url 'detalhes_produto' produto.id %}" class="product-link">{{ produto.nome }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Seu rodapé comum aqui -->
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+/* Reset some basic elements */
+body, h1, h2, h3, p, ul, li, a, img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* Basic body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em 0;
+}
+
+header .logo {
+    font-size: 2em;
+    text-align: center;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+header nav ul li {
+    margin: 0 1em;
+}
+
+header nav ul li a {
+    color: #fff;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 4em 0;
+}
+
+.hero .hero-title {
+    font-size: 2.5em;
+}
+
+.hero .hero-description {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+}
+
+.hero .btn-primary {
+    margin-top: 1em;
+    padding: 0.75em 1.5em;
+    background-color: #ffd700;
+    color: #333;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero .btn-primary:hover {
+    background-color: #ffa500;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 2em;
+    text-align: center;
+    margin: 2em 0;
+}
+
+/* Product Grid */
+.product-grid, .offers-carousel {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.product-card, .offer-card {
+    background-color: #fff;
+    padding: 1em;
+    margin: 1em;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover, .offer-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.product-card img, .offer-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-card h3, .offer-card h3 {
+    font-size: 1.5em;
+    margin-top: 0.5em;
+}
+
+.product-card .price, .offer-card .price {
+    color: #333;
+    font-size: 1.2em;
+    margin-top: 0.5em;
+}
+
+.product-card .btn, .offer-card .btn {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    background-color: #ffd700;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-card .btn:hover, .offer-card .btn:hover {
+    background-color: #ffa500;
+}
+
+/* Categories */
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.category-list li {
+    margin: 0.5em 1em;
+}
+
+.category-list .category-link {
+    font-size: 1.2em;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.category-list .category-link:hover {
+    color: #ffd700;
+}
+
+/* Additions Section */
+.additions .btn-add {
+    display: inline-block;
+    margin: 1em 0.5em;
+    padding: 0.75em 1.5em;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.additions .btn-add i {
+    margin-right: 0.5em;
+}
+
+.additions .btn-add:hover {
+    background-color: #218838;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 2em;
+}

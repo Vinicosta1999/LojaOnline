@@ -1,0 +1,14 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-title {
+    margin-bottom: 20px;
+}
+
+/* Estilos específicos para a lista de movimentações */
+.movement-list {
+    margin-top: 40px;
+}

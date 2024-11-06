@@ -1,0 +1,279 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Loja - Página Inicial</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pagina_inicial.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <meta name="description" content="Sua Loja Online oferece os melhores produtos com os melhores preços. Visite-nos para ofertas especiais e produtos em destaque.">
+    <meta name="keywords" content="loja online, produtos, ofertas, categorias">
+    <style>
+        /* Adicionando estilos para melhorar a aparência */
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Space between the buttons */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 32px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: right;
+        }
+        nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+        nav ul li:first-child {
+            margin-left: 0;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+            text-transform: uppercase;
+        }
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+        main {
+            padding: 20px 0;
+        }
+        .hero {
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('hero-background.jpg');
+            background-size: cover;
+            color: #fff;
+            padding: 150px 0;
+            text-align: center;
+            position: relative;
+        }
+        .hero-title {
+            font-size: 48px;
+            margin: 0;
+            line-height: 1.2;
+        }
+        .hero-description {
+            font-size: 24px;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+        .btn-primary {
+            background-color: #ff6347;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .btn-primary:hover {
+            background-color: #ff4500;
+        }
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .category-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 20px;
+            transition: color 0.3s;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            display: inline-block;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .category-link:hover {
+            color: #ff6347;
+            background-color: #f9f9f9;
+        }
+        .btn-add {
+            background-color: #32cd32;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .btn-add:hover {
+            background-color: #228b22;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        .footer-text {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Sua Loja</h1>
+            <nav role="navigation" aria-label="Navegação Principal">
+                <ul>
+                    <li><a href="{% url 'pagina_inicial' %}">Página Inicial</a></li>
+                    <li><a href="{% url 'lista_categorias' %}">Categorias</a></li>
+                    <li><a href="{% url 'lista_produtos' %}">Produtos</a></li>
+                    <li><a href="{% url 'relatorio_estoque' %}">Relatório de Estoque</a></li>
+                    <li><a href="{% url 'historico_vendas' %}">Histórico de Vendas</a></li>
+                    <li><a href="{% url 'lista_movimentacoes' %}">Movimentações de Estoque</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Bem-vindo à Sua Loja Online!</h1>
+                <p class="hero-description">Encontre os melhores produtos com os melhores preços.</p>
+                <a href="{% url 'lista_produtos' %}" class="btn btn-primary">Ver Produtos</a>
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="featured-products">
+            <div class="container">
+                <h2 class="section-title">Produtos em Destaque</h2>
+                <div class="product-grid">
+                    <!-- Example Product Card -->
+                    <div class="product-card">
+                        <img src="{% static 'images/product1.jpg' %}" alt="100% Pure Whey 900G">
+                        <h3>100% Pure Whey 900G</h3>
+                        <p class="price">R$ 100,00</p>
+                        {% if produto.id %}
+                            <a href="{% url 'detalhes_produto' produto.id %}" class="btn btn-secondary">Ver Detalhes</a>
+                        {% else %}
+                            <a href="#" class="btn btn-secondary disabled">Detalhes Indisponíveis</a>
+                        {% endif %}
+                    </div>
+                    <!-- Repeat similar blocks for other featured products -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Offers Section -->
+        <section class="special-offers">
+            <div class="container">
+                <h2 class="section-title">Ofertas Especiais</h2>
+                <div class="offers-carousel">
+                    <!-- Example Offer Card -->
+                    <div class="offer-card">
+                        <img src="{% static 'images/offer1.jpg' %}" alt="Whey Protein 100% Pure 907G - Integralmedica">
+                        <h3>Whey Protein 100% Pure 907G - Integralmedica</h3>
+                        <p class="price">R$ 80,00</p>
+                        {% if oferta.id %}
+                            <a href="{% url 'detalhes_oferta' oferta.id %}" class="btn btn-secondary">Ver Detalhes</a>
+                        {% else %}
+                            <a href="#" class="btn btn-secondary disabled">Detalhes Indisponíveis</a>
+                        {% endif %}
+                    </div>
+                    <!-- Repeat similar blocks for other special offers -->
+                </div>
+                <div class="actions">
+                    <a href="{% url 'lista_produtos' %}?ofertas=true" class="btn">Ver Todas as Ofertas</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories">
+            <div class="container">
+                <h2 class="section-title">Nossas Categorias</h2>
+                <ul class="category-list">
+                    {% for categoria in categorias %}
+                        <li><a href="{% url 'detalhes_categoria' categoria.id %}" class="category-link">{{ categoria.nome }}</a></li>
+                    {% endfor %}
+                </ul>
+                <div class="actions">
+                    <a href="{% url 'lista_categorias' %}" class="btn">Ver Todas as Categorias</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additions Section -->
+        <section class="additions">
+            <div class="container">
+                <h2 class="section-title">Adições</h2>
+                <div class="actions">
+                    <a href="{% url 'adicionar_produto' %}" class="btn btn-add"><i class="fas fa-plus"></i> Adicionar Produto</a>
+                    <a href="{% url 'adicionar_movimentacao' %}" class="btn btn-add"><i class="fas fa-plus"></i> Adicionar Movimentação</a>
+                    <a href="{% url 'atualizar_estoque' %}" class="btn btn-add"><i class="fas fa-plus"></i> Atualizar Estoque</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-text">&copy; {{ year }} Sua Loja. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
+               
