@@ -27,7 +27,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1',
                  '15.229.10.50',
-                 'lojaonline-fork.onrender.com']
+                 'lojaonline.onrender.com']
 
 
 # Application definition
